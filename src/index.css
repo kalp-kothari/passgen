@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Global Reset & Base ─────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+body {
+  margin: 0;
+  font-family: 'Exo 2', sans-serif;
+  background-color: #111111;
+  color: #F5F5F5;
+  overflow-x: hidden;
+}
+
+/* ── Custom Scrollbar ─────────────────────────────── */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #1A1A1A; }
+::-webkit-scrollbar-thumb { background: #E61E25; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #FFD700; }
+
+/* ── Selection ───────────────────────────────────── */
+::selection { background: #E61E25; color: #fff; }
+
+/* ── Halftone Background Pattern ─────────────────── */
+.bg-halftone {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.bg-halftone-red {
+  background-image: radial-gradient(circle, rgba(230,30,37,0.15) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* ── Comic Border Cards ───────────────────────────── */
+.comic-card {
+  border: 3px solid #111111;
+  box-shadow: 6px 6px 0px #111111;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.comic-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0px #111111;
+}
+.comic-card-red {
+  border: 3px solid #E61E25;
+  box-shadow: 6px 6px 0px #E61E25;
+}
+
+/* ── Action Buttons ────────────────────────────────── */
+.btn-extreme {
+  font-family: 'Bangers', cursive;
+  letter-spacing: 0.08em;
+  border: 3px solid #111111;
+  box-shadow: 5px 5px 0px #111111;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  cursor: pointer;
+  text-transform: uppercase;
+  user-select: none;
+}
+.btn-extreme:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0px #111111;
+}
+.btn-extreme:active {
+  transform: translate(3px, 3px);
+  box-shadow: 2px 2px 0px #111111;
+}
+
+/* ── Monospace password display ───────────────────── */
+.font-mono-kb {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+/* ── Strength gradient bar ─────────────────────────── */
+.strength-weak     { background: linear-gradient(90deg, #E61E25, #ff5555); }
+.strength-moderate { background: linear-gradient(90deg, #E61E25, #FF8C00); }
+.strength-strong   { background: linear-gradient(90deg, #FF8C00, #22c55e); }
+.strength-extreme  { background: linear-gradient(90deg, #22c55e, #FFD700, #22c55e);
+                     background-size: 200% 100%;
+                     animation: shimmer 2s linear infinite; }
+
+@keyframes shimmer {
+  0%   { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+/* ── Zigzag Section Divider ───────────────────────── */
+.zigzag-top {
+  clip-path: polygon(
+    0% 100%, 2.5% 0%, 5% 100%, 7.5% 0%, 10% 100%, 12.5% 0%,
+    15% 100%, 17.5% 0%, 20% 100%, 22.5% 0%, 25% 100%, 27.5% 0%,
+    30% 100%, 32.5% 0%, 35% 100%, 37.5% 0%, 40% 100%, 42.5% 0%,
+    45% 100%, 47.5% 0%, 50% 100%, 52.5% 0%, 55% 100%, 57.5% 0%,
+    60% 100%, 62.5% 0%, 65% 100%, 67.5% 0%, 70% 100%, 72.5% 0%,
+    75% 100%, 77.5% 0%, 80% 100%, 82.5% 0%, 85% 100%, 87.5% 0%,
+    90% 100%, 92.5% 0%, 95% 100%, 97.5% 0%, 100% 100%
+  );
+}
+
+/* ── Scan overlay ─────────────────────────────────── */
+.scan-overlay {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(230, 30, 37, 0.15) 48%,
+    rgba(230, 30, 37, 0.5) 50%,
+    rgba(230, 30, 37, 0.15) 52%,
+    transparent 100%
+  );
+}
+
+/* ── Focus rings ──────────────────────────────────── */
+input:focus, button:focus-visible {
+  outline: 3px solid #FFD700;
+  outline-offset: 2px;
+}
+
+/* ── Range input custom styling ───────────────────── */
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  border-radius: 4px;
+  background: #333;
+  border: 2px solid #111;
+  cursor: pointer;
+  outline: none;
+}
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #E61E25;
+  border: 3px solid #111;
+  box-shadow: 2px 2px 0 #111;
+  cursor: grab;
+}
+input[type='range']::-webkit-slider-thumb:active { cursor: grabbing; background: #FFD700; }
+input[type='range']::-moz-range-thumb {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: #E61E25;
+  border: 3px solid #111;
+  cursor: grab;
+}
+
+/* ── Checkbox custom styling ─────────────────────── */
+input[type='checkbox'] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px; height: 20px;
+  border: 3px solid #111;
+  background: #fff;
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+}
+input[type='checkbox']:checked { background: #E61E25; }
+input[type='checkbox']:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -55%);
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 1;
+}
+input[type='checkbox']:focus { outline: 3px solid #FFD700; outline-offset: 2px; }

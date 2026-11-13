@@ -1,0 +1,31 @@
+{
+  "model_name": "Password Forge Neural LSTM",
+  "file_name": "password_forge_weights.pt",
+  "format": "PyTorch .pt",
+  "architecture": "Char-Level LSTM (2-layer, 128-dim, 64-embed)",
+  "vocab_size": 98,
+  "total_parameters": 250338,
+  "samples_trained": 75000,
+  "final_loss": 2.3132,
+  "final_perplexity": 10.11,
+  "training_time_seconds": 275.72,
+  "loss_history": [
+    {
+      "epoch": 1,
+      "loss": 2.689,
+      "perplexity": 14.72
+    },
+    {
+      "epoch": 2,
+      "loss": 2.3966,
+      "perplexity": 10.99
+    },
+    {
+      "epoch": 3,
+      "loss": 2.3132,
+      "perplexity": 10.11
+    }
+  ],
+  "vocab_tokens": 98,
+  "status": "TRAINED_AND_VERIFIED"
+}
